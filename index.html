@@ -1,0 +1,1530 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>影院 - 品牌影讯_官方影像社区</title>
+<meta name="description" content="影院官方网站，深耕影视内容生态的原创影像社区，汇聚创作者、品牌与观众，提供专业高清的精品内容与企业动态。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111a2b'/%3E%3Cpath d='M24 18l22 14-22 14z' fill='%23ff5a3c'/%3E%3C/svg%3E">
+<style>
+:root{
+  --cin-bg:#0e1420;
+  --cin-panel:#151e2e;
+  --cin-panel-2:#1b2639;
+  --cin-line:#26334a;
+  --cin-text:#e7ecf5;
+  --cin-muted:#93a1b8;
+  --cin-accent:#ff5a3c;
+  --cin-accent-2:#37d3c0;
+  --cin-amber:#ffc45c;
+  --cin-radius:16px;
+  --cin-shadow:0 18px 44px rgba(4,9,18,.55);
+  --cin-sticky:112px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:var(--cin-sticky)}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  background:
+    radial-gradient(1100px 520px at 82% -8%,rgba(255,90,60,.16),transparent 60%),
+    radial-gradient(900px 500px at 8% 4%,rgba(55,211,192,.12),transparent 62%),
+    var(--cin-bg);
+  color:var(--cin-text);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+input{font-family:inherit}
+
+.cin-sticky-wrap{position:sticky;top:0;z-index:80}
+.cin-notice{
+  background:linear-gradient(90deg,#ff5a3c,#ff8a3c 55%,#ffc45c);
+  color:#20130a;font-size:13.5px;font-weight:600;
+  display:flex;align-items:center;gap:12px;
+  padding:9px clamp(16px,4vw,44px);
+  overflow:hidden;white-space:nowrap;
+}
+.cin-notice-badge{
+  flex:0 0 auto;background:#20130a;color:#ffc45c;
+  font-size:11px;letter-spacing:.14em;padding:2px 9px;border-radius:999px;font-weight:700;
+}
+.cin-notice-track{overflow:hidden;flex:1 1 auto;position:relative;height:20px}
+.cin-notice-move{
+  position:absolute;inset:0;display:flex;align-items:center;
+  animation:cinRoll 26s linear infinite;
+}
+.cin-notice-move span{padding-right:56px}
+@keyframes cinRoll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.cin-notice-close{
+  flex:0 0 auto;font-size:16px;line-height:1;color:#20130a;opacity:.7;
+}
+.cin-notice-close:hover{opacity:1}
+
+.cin-header{
+  background:rgba(14,20,32,.9);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--cin-line);
+}
+.cin-header-inner{
+  max-width:1240px;margin:0 auto;
+  display:flex;align-items:center;gap:clamp(12px,2.4vw,32px);
+  padding:14px clamp(16px,4vw,44px);
+}
+.cin-logo{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.cin-logo-mark{
+  width:38px;height:38px;border-radius:11px;
+  background:linear-gradient(140deg,#ff5a3c,#b32b17);
+  display:grid;place-items:center;box-shadow:0 8px 20px rgba(255,90,60,.35);
+}
+.cin-logo-mark svg{width:16px;height:16px;fill:#fff}
+.cin-logo-text b{font-size:18px;letter-spacing:.06em}
+.cin-logo-text small{display:block;font-size:10.5px;letter-spacing:.28em;color:var(--cin-muted);font-weight:500}
+.cin-nav{display:flex;align-items:center;gap:clamp(10px,1.8vw,24px);flex:1 1 auto;flex-wrap:wrap}
+.cin-nav a{
+  font-size:14.5px;color:var(--cin-muted);padding:6px 2px;position:relative;transition:color .2s;
+}
+.cin-nav a::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;
+  background:var(--cin-accent);transform:scaleX(0);transform-origin:left;transition:transform .24s;
+}
+.cin-nav a:hover{color:#fff}
+.cin-nav a:hover::after{transform:scaleX(1)}
+.cin-search{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.cin-search-box{
+  display:flex;align-items:center;gap:6px;
+  background:var(--cin-panel-2);border:1px solid var(--cin-line);
+  border-radius:999px;padding:5px 6px 5px 14px;
+  transition:border-color .2s,box-shadow .2s;
+}
+.cin-search-box:focus-within{border-color:var(--cin-accent-2);box-shadow:0 0 0 3px rgba(55,211,192,.14)}
+.cin-search-box input{
+  background:none;border:0;outline:none;color:var(--cin-text);
+  font-size:13.5px;width:clamp(96px,13vw,168px);
+}
+.cin-search-box input::placeholder{color:#6d7d96}
+.cin-search-btn{
+  background:var(--cin-accent);color:#fff;border-radius:999px;
+  font-size:13px;font-weight:600;padding:6px 14px;transition:filter .2s,transform .2s;
+}
+.cin-search-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.cin-burger{display:none;flex:0 0 auto;width:38px;height:38px;border-radius:10px;border:1px solid var(--cin-line);align-items:center;justify-content:center}
+.cin-burger span{display:block;width:16px;height:2px;background:var(--cin-text);position:relative;border-radius:2px}
+.cin-burger span::before,.cin-burger span::after{content:"";position:absolute;left:0;width:16px;height:2px;background:var(--cin-text);border-radius:2px;transition:transform .2s}
+.cin-burger span::before{top:-5px}
+.cin-burger span::after{top:5px}
+
+.cin-main{max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,44px)}
+.cin-section{padding:clamp(44px,6vw,78px) 0;border-bottom:1px solid rgba(38,51,74,.6)}
+.cin-section:last-of-type{border-bottom:0}
+.cin-section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:30px}
+.cin-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;letter-spacing:.22em;color:var(--cin-accent-2);font-weight:700;
+  text-transform:uppercase;margin-bottom:10px;
+}
+.cin-eyebrow::before{content:"";width:22px;height:2px;background:var(--cin-accent-2);border-radius:2px}
+.cin-h2{font-size:clamp(23px,3vw,31px);line-height:1.35;font-weight:800;letter-spacing:.01em}
+.cin-h2 em{font-style:normal;color:var(--cin-accent)}
+.cin-sub{color:var(--cin-muted);font-size:14.5px;max-width:640px;margin-top:10px}
+.cin-link-more{font-size:13.5px;color:var(--cin-accent-2);font-weight:600;white-space:nowrap}
+.cin-link-more:hover{text-decoration:underline}
+
+.cin-hero{padding:clamp(34px,5vw,64px) 0 clamp(30px,4vw,48px)}
+.cin-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,54px);align-items:center}
+.cin-hero-tag{
+  display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;
+  background:rgba(255,90,60,.13);border:1px solid rgba(255,90,60,.4);color:#ffb3a4;
+  padding:5px 14px;border-radius:999px;margin-bottom:18px;
+}
+.cin-hero-tag i{width:6px;height:6px;border-radius:50%;background:var(--cin-accent);display:block}
+h1.cin-h1{
+  font-size:clamp(38px,6.4vw,66px);line-height:1.08;font-weight:900;letter-spacing:-.01em;
+  margin-bottom:18px;
+}
+h1.cin-h1 span{
+  background:linear-gradient(100deg,#ff5a3c,#ffc45c);-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.cin-hero-lead{color:#b9c5d8;font-size:15.5px;max-width:520px;margin-bottom:24px}
+.cin-hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px}
+.cin-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-size:14.5px;font-weight:700;padding:12px 24px;border-radius:999px;
+  transition:transform .2s,box-shadow .2s,filter .2s;
+}
+.cin-btn-primary{background:linear-gradient(100deg,#ff5a3c,#ff7a3c);color:#fff;box-shadow:0 12px 26px rgba(255,90,60,.3)}
+.cin-btn-primary:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.cin-btn-ghost{border:1px solid var(--cin-line);color:var(--cin-text);background:rgba(255,255,255,.03)}
+.cin-btn-ghost:hover{border-color:var(--cin-accent-2);color:var(--cin-accent-2);transform:translateY(-2px)}
+.cin-stats{display:flex;flex-wrap:wrap;gap:clamp(18px,3vw,38px)}
+.cin-stat b{font-size:clamp(21px,2.6vw,27px);font-weight:800;color:#fff;display:block;line-height:1.2}
+.cin-stat b i{font-style:normal;color:var(--cin-accent-2);font-size:14px;margin-left:2px}
+.cin-stat span{font-size:12.5px;color:var(--cin-muted);letter-spacing:.08em}
+
+.cin-hero-visual{position:relative}
+.cin-hero-frame{
+  border-radius:22px;overflow:hidden;position:relative;
+  border:1px solid var(--cin-line);box-shadow:var(--cin-shadow);
+  aspect-ratio:16/10;background:#0a1018;
+}
+.cin-hero-frame svg{width:100%;height:100%}
+.cin-hero-play{
+  position:absolute;inset:0;display:grid;place-items:center;
+}
+.cin-hero-play button{
+  width:74px;height:74px;border-radius:50%;
+  background:rgba(255,255,255,.12);backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.4);
+  display:grid;place-items:center;transition:transform .22s,background .22s;
+}
+.cin-hero-play button:hover{transform:scale(1.08);background:rgba(255,90,60,.55)}
+.cin-hero-play svg{width:22px;height:22px;fill:#fff}
+.cin-hero-caption{
+  position:absolute;left:14px;right:14px;bottom:12px;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  font-size:12.5px;color:#dfe6f2;
+}
+.cin-hero-caption .cin-chip{background:rgba(10,16,24,.66);border:1px solid rgba(255,255,255,.18);padding:3px 10px;border-radius:999px}
+.cin-hero-float{
+  position:absolute;right:-8px;top:-16px;
+  background:var(--cin-panel-2);border:1px solid var(--cin-line);
+  border-radius:14px;padding:10px 16px;box-shadow:var(--cin-shadow);
+  font-size:12.5px;color:var(--cin-muted);
+}
+.cin-hero-float b{display:block;color:var(--cin-amber);font-size:17px;font-weight:800}
+
+.cin-about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,4vw,48px);align-items:start}
+.cin-about-text p{color:#b6c2d6;font-size:15px;margin-bottom:14px}
+.cin-about-text strong{color:#fff}
+.cin-about-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.cin-tag{
+  font-size:12.5px;color:var(--cin-muted);border:1px solid var(--cin-line);
+  padding:4px 12px;border-radius:999px;background:rgba(255,255,255,.02);
+}
+.cin-tag.hot{border-color:rgba(255,90,60,.5);color:#ffb3a4;background:rgba(255,90,60,.08)}
+.cin-about-cards{display:grid;gap:14px}
+.cin-about-card{
+  background:linear-gradient(160deg,var(--cin-panel-2),var(--cin-panel));
+  border:1px solid var(--cin-line);border-radius:var(--cin-radius);
+  padding:20px 22px;transition:transform .24s,border-color .24s;
+}
+.cin-about-card:hover{transform:translateY(-3px);border-color:rgba(55,211,192,.5)}
+.cin-about-card h3{font-size:16px;margin-bottom:6px;display:flex;align-items:center;gap:9px}
+.cin-about-card h3 i{
+  width:9px;height:9px;border-radius:3px;background:var(--cin-accent-2);display:block;flex:0 0 auto;
+}
+.cin-about-card p{font-size:13.8px;color:var(--cin-muted)}
+
+.cin-feature-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:18px}
+.cin-feature-main{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--cin-line);min-height:330px;box-shadow:var(--cin-shadow)}
+.cin-feature-main svg{width:100%;height:100%;position:absolute;inset:0}
+.cin-feature-main-txt{
+  position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:clamp(18px,3vw,30px);
+  background:linear-gradient(180deg,transparent 26%,rgba(8,13,21,.9) 92%);
+}
+.cin-feature-main-txt h3{font-size:clamp(19px,2.4vw,24px);margin-bottom:8px;line-height:1.35}
+.cin-feature-main-txt p{font-size:13.8px;color:#c3cee0;max-width:520px}
+.cin-feature-meta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+.cin-pill{font-size:11.5px;font-weight:700;letter-spacing:.06em;padding:3px 10px;border-radius:999px;background:rgba(255,90,60,.9);color:#fff}
+.cin-pill.teal{background:rgba(55,211,192,.9);color:#06211d}
+.cin-pill.amber{background:rgba(255,196,92,.92);color:#2a1c03}
+.cin-feature-side{display:grid;gap:14px}
+.cin-mini{
+  display:grid;grid-template-columns:112px 1fr;gap:14px;
+  background:var(--cin-panel);border:1px solid var(--cin-line);border-radius:14px;
+  padding:11px;transition:transform .22s,border-color .22s;
+}
+.cin-mini:hover{transform:translateX(4px);border-color:rgba(255,90,60,.5)}
+.cin-mini-thumb{border-radius:9px;overflow:hidden;aspect-ratio:16/10;background:#0b1220}
+.cin-mini-thumb svg{width:100%;height:100%}
+.cin-mini-txt h4{font-size:14.5px;line-height:1.4;margin-bottom:5px}
+.cin-mini-txt span{font-size:12.3px;color:var(--cin-muted);display:block}
+.cin-mini-txt em{font-style:normal;color:var(--cin-accent-2);font-size:12.3px;font-weight:600}
+
+.cin-filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:24px}
+.cin-filter-btn{
+  font-size:13px;padding:6px 16px;border-radius:999px;border:1px solid var(--cin-line);
+  color:var(--cin-muted);transition:all .2s;background:transparent;
+}
+.cin-filter-btn:hover{color:#fff;border-color:#3a4a66}
+.cin-filter-btn.active{background:var(--cin-accent);border-color:var(--cin-accent);color:#fff;font-weight:700}
+
+.cin-card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cin-vcard{
+  background:var(--cin-panel);border:1px solid var(--cin-line);border-radius:var(--cin-radius);
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .24s,box-shadow .24s,border-color .24s;
+}
+.cin-vcard:hover{transform:translateY(-5px);border-color:#33445e;box-shadow:var(--cin-shadow)}
+.cin-vcard-cover{position:relative;aspect-ratio:16/9;overflow:hidden;background:#0b1220}
+.cin-vcard-cover svg{width:100%;height:100%;transition:transform .5s}
+.cin-vcard:hover .cin-vcard-cover svg{transform:scale(1.05)}
+.cin-vcard-cover .cin-dur{
+  position:absolute;right:9px;bottom:9px;font-size:11px;font-weight:700;
+  background:rgba(6,11,18,.82);color:#fff;padding:2px 8px;border-radius:5px;letter-spacing:.05em;
+}
+.cin-vcard-cover .cin-cat{
+  position:absolute;left:9px;top:9px;font-size:11px;font-weight:700;
+  background:rgba(255,90,60,.92);color:#fff;padding:2px 9px;border-radius:5px;
+}
+.cin-vcard-body{padding:15px 16px 16px;display:flex;flex-direction:column;flex:1 1 auto}
+.cin-vcard-body h3{font-size:15.5px;line-height:1.45;margin-bottom:7px}
+.cin-vcard-body p{font-size:13.2px;color:var(--cin-muted);flex:1 1 auto;margin-bottom:12px}
+.cin-vcard-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12.4px;color:#8194ae}
+.cin-author{display:flex;align-items:center;gap:7px;min-width:0}
+.cin-avatar{
+  width:26px;height:26px;border-radius:50%;display:grid;place-items:center;
+  font-size:11.5px;font-weight:800;color:#0b1220;flex:0 0 auto;letter-spacing:0;
+}
+.cin-author span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cin-op{display:flex;align-items:center;gap:10px}
+.cin-op button{display:inline-flex;align-items:center;gap:4px;font-size:12.4px;color:#8194ae;transition:color .18s}
+.cin-op button:hover{color:var(--cin-accent)}
+.cin-op button.liked{color:var(--cin-accent);font-weight:700}
+.cin-op button.saved{color:var(--cin-amber);font-weight:700}
+.cin-op svg{width:14px;height:14px;fill:currentColor}
+
+.cin-topic-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cin-topic{
+  position:relative;border-radius:15px;overflow:hidden;border:1px solid var(--cin-line);
+  min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:16px;transition:transform .24s;
+}
+.cin-topic:hover{transform:translateY(-4px)}
+.cin-topic svg{position:absolute;inset:0;width:100%;height:100%}
+.cin-topic-txt{position:relative;z-index:2}
+.cin-topic-txt .cin-pill{margin-bottom:8px;display:inline-block}
+.cin-topic-txt h3{font-size:16px;line-height:1.4;margin-bottom:4px}
+.cin-topic-txt span{font-size:12.2px;color:#c9d4e4}
+.cin-topic::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,14,22,.1),rgba(9,14,22,.86))}
+
+.cin-creator-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cin-creator{
+  background:linear-gradient(165deg,var(--cin-panel-2),var(--cin-panel));
+  border:1px solid var(--cin-line);border-radius:var(--cin-radius);
+  padding:22px;text-align:center;transition:transform .24s,border-color .24s;
+  position:relative;overflow:hidden;
+}
+.cin-creator::before{
+  content:"";position:absolute;top:-46px;left:50%;transform:translateX(-50%);
+  width:150px;height:96px;border-radius:50%;filter:blur(30px);opacity:.4;
+}
+.cin-creator:hover{transform:translateY(-4px);border-color:rgba(55,211,192,.55)}
+.cin-creator-avatar{
+  width:64px;height:64px;border-radius:20px;margin:0 auto 13px;
+  display:grid;place-items:center;font-size:23px;font-weight:900;color:#08101a;
+  box-shadow:0 10px 24px rgba(0,0,0,.35);
+}
+.cin-creator h3{font-size:16.5px;margin-bottom:3px}
+.cin-creator .cin-cr-field{font-size:12.5px;color:var(--cin-accent-2);font-weight:600;margin-bottom:9px}
+.cin-creator p{font-size:13.2px;color:var(--cin-muted);margin-bottom:14px;min-height:44px}
+.cin-creator-stats{display:flex;justify-content:center;gap:20px;font-size:12.3px;color:#8194ae;border-top:1px solid var(--cin-line);padding-top:12px}
+.cin-creator-stats b{display:block;color:#fff;font-size:14.5px}
+.cin-creator-more{
+  margin-top:13px;font-size:12.6px;font-weight:700;color:var(--cin-accent);
+  border:1px solid rgba(255,90,60,.4);border-radius:999px;padding:5px 14px;
+  transition:background .2s;
+}
+.cin-creator-more:hover{background:rgba(255,90,60,.14)}
+
+.cin-quote-grid{columns:3;column-gap:16px}
+.cin-quote{
+  break-inside:avoid;margin-bottom:16px;
+  background:var(--cin-panel);border:1px solid var(--cin-line);
+  border-radius:14px;padding:18px 20px;
+}
+.cin-quote-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.cin-quote-top b{font-size:13.5px}
+.cin-quote-top span{font-size:11.8px;color:#6d7d96}
+.cin-quote p{font-size:13.6px;color:#b6c2d6}
+.cin-quote .cin-stars{font-size:12px;color:var(--cin-amber);letter-spacing:.12em;margin-top:8px}
+
+.cin-log{display:grid;gap:14px;position:relative}
+.cin-log-item{
+  display:grid;grid-template-columns:96px 1fr;gap:18px;align-items:start;
+  padding:16px 18px;border-radius:13px;border:1px solid var(--cin-line);
+  background:rgba(19,28,43,.6);
+}
+.cin-log-date{font-size:12.5px;color:var(--cin-accent-2);font-weight:700;letter-spacing:.04em}
+.cin-log-item h3{font-size:15px;margin-bottom:4px}
+.cin-log-item p{font-size:13.3px;color:var(--cin-muted)}
+
+.cin-partners{display:flex;flex-wrap:wrap;gap:12px}
+.cin-partner{
+  flex:1 1 150px;text-align:center;font-size:14px;font-weight:700;color:#9fb0c9;
+  border:1px dashed var(--cin-line);border-radius:12px;padding:18px 12px;
+  transition:all .22s;letter-spacing:.04em;
+}
+.cin-partner:hover{color:#fff;border-color:var(--cin-accent-2);background:rgba(55,211,192,.06)}
+
+.cin-faq{display:grid;gap:10px;max-width:880px}
+.cin-faq details{
+  background:var(--cin-panel);border:1px solid var(--cin-line);border-radius:12px;
+  padding:15px 18px;transition:border-color .2s;
+}
+.cin-faq details[open]{border-color:rgba(255,90,60,.5)}
+.cin-faq summary{
+  cursor:pointer;font-size:14.5px;font-weight:600;list-style:none;
+  display:flex;justify-content:space-between;gap:14px;align-items:center;
+}
+.cin-faq summary::-webkit-details-marker{display:none}
+.cin-faq summary::after{content:"+";font-size:19px;color:var(--cin-accent);font-weight:400;line-height:1}
+.cin-faq details[open] summary::after{content:"–"}
+.cin-faq p{font-size:13.5px;color:var(--cin-muted);margin-top:10px;padding-top:10px;border-top:1px dashed var(--cin-line)}
+
+.cin-contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cin-contact-card{
+  background:linear-gradient(160deg,var(--cin-panel-2),var(--cin-panel));
+  border:1px solid var(--cin-line);border-radius:15px;padding:24px;
+}
+.cin-contact-card h3{font-size:16px;margin-bottom:8px;display:flex;align-items:center;gap:9px}
+.cin-contact-card h3 svg{width:17px;height:17px;fill:var(--cin-accent-2)}
+.cin-contact-card p{font-size:13.5px;color:var(--cin-muted);margin-bottom:14px}
+
+.cin-footer{border-top:1px solid var(--cin-line);background:#0a1018;padding:clamp(36px,5vw,58px) 0 26px;margin-top:10px}
+.cin-footer-inner{max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,44px)}
+.cin-footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:clamp(22px,4vw,44px);margin-bottom:34px}
+.cin-footer-brand p{font-size:13.4px;color:#7f8ea6;margin-top:13px;max-width:320px}
+.cin-footer-col h4{font-size:13.5px;letter-spacing:.1em;color:#c3cee0;margin-bottom:13px}
+.cin-footer-col a{display:block;font-size:13.2px;color:#7f8ea6;margin-bottom:9px;transition:color .18s}
+.cin-footer-col a:hover{color:var(--cin-accent-2)}
+.cin-footer-bottom{
+  border-top:1px solid rgba(38,51,74,.7);padding-top:20px;
+  display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
+  font-size:12.4px;color:#66758c;
+}
+
+.cin-toast{
+  position:fixed;left:50%;bottom:32px;transform:translate(-50%,20px);
+  background:#1e2b40;border:1px solid #35485f;color:#e7ecf5;
+  padding:11px 22px;border-radius:999px;font-size:13.5px;font-weight:600;
+  box-shadow:0 14px 34px rgba(0,0,0,.5);opacity:0;pointer-events:none;
+  transition:opacity .26s,transform .26s;z-index:200;
+}
+.cin-toast.show{opacity:1;transform:translate(-50%,0)}
+
+.cin-top-btn{
+  position:fixed;right:22px;bottom:26px;width:44px;height:44px;border-radius:50%;
+  background:var(--cin-accent);color:#fff;display:grid;place-items:center;
+  box-shadow:0 12px 26px rgba(255,90,60,.36);z-index:120;
+  opacity:0;pointer-events:none;transition:opacity .24s,transform .24s;
+}
+.cin-top-btn.show{opacity:1;pointer-events:auto;transform:translateY(-2px)}
+.cin-top-btn svg{width:17px;height:17px;fill:#fff}
+
+.cin-modal-mask{
+  position:fixed;inset:0;background:rgba(5,9,15,.76);backdrop-filter:blur(4px);
+  display:none;align-items:center;justify-content:center;padding:20px;z-index:300;
+}
+.cin-modal-mask.show{display:flex}
+.cin-modal{
+  width:min(520px,100%);background:var(--cin-panel);border:1px solid var(--cin-line);
+  border-radius:18px;padding:26px;box-shadow:var(--cin-shadow);
+}
+.cin-modal h3{font-size:18px;margin-bottom:6px}
+.cin-modal > p{font-size:13.4px;color:var(--cin-muted);margin-bottom:16px}
+.cin-modal label{display:block;font-size:12.8px;color:#a9b7cc;margin:12px 0 6px;font-weight:600}
+.cin-modal input,.cin-modal textarea{
+  width:100%;background:#0d1521;border:1px solid var(--cin-line);border-radius:9px;
+  padding:9px 12px;color:var(--cin-text);font-size:13.5px;outline:none;resize:vertical;
+}
+.cin-modal input:focus,.cin-modal textarea:focus{border-color:var(--cin-accent-2)}
+.cin-modal-foot{display:flex;gap:10px;justify-content:flex-end;margin-top:20px}
+
+@media (max-width:980px){
+  .cin-hero-grid{grid-template-columns:1fr}
+  .cin-about-grid{grid-template-columns:1fr}
+  .cin-feature-grid{grid-template-columns:1fr}
+  .cin-card-grid{grid-template-columns:repeat(2,1fr)}
+  .cin-topic-grid{grid-template-columns:repeat(2,1fr)}
+  .cin-creator-grid{grid-template-columns:repeat(2,1fr)}
+  .cin-quote-grid{columns:2}
+  .cin-contact-grid{grid-template-columns:1fr}
+  .cin-footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  :root{--cin-sticky:104px}
+  .cin-nav{
+    display:none;position:absolute;left:0;right:0;top:100%;
+    background:#111a29;border-bottom:1px solid var(--cin-line);
+    padding:14px clamp(16px,4vw,44px) 18px;flex-direction:column;align-items:flex-start;gap:13px;
+  }
+  .cin-nav.open{display:flex}
+  .cin-burger{display:flex}
+  .cin-search-box input{width:80px}
+  .cin-header-inner{position:relative;flex-wrap:wrap}
+  .cin-search{order:3}
+  .cin-card-grid{grid-template-columns:1fr}
+  .cin-topic-grid{grid-template-columns:1fr 1fr}
+  .cin-creator-grid{grid-template-columns:1fr}
+  .cin-quote-grid{columns:1}
+  .cin-footer-grid{grid-template-columns:1fr}
+  .cin-hero-float{right:6px;top:-10px;padding:8px 12px}
+  .cin-feature-main{min-height:260px}
+  .cin-log-item{grid-template-columns:1fr;gap:6px}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="cin-sticky-wrap">
+  <div class="cin-notice" id="cinNotice">
+    <span class="cin-notice-badge">官方发布</span>
+    <div class="cin-notice-track">
+      <div class="cin-notice-move" id="cinNoticeMove">
+        <span>11月19日 · 影院冬季企划「城市夜光」专题上线，首批 12 部原创短片同步发布</span>
+        <span>11月18日 · 创作者扶持计划第三期开放报名，新增 30 个精品内容席位</span>
+        <span>11月16日 · 企业动态：影院影像实验室落成，面向社区开放预约参观</span>
+        <span>11月19日 · 影院冬季企划「城市夜光」专题上线，首批 12 部原创短片同步发布</span>
+        <span>11月18日 · 创作者扶持计划第三期开放报名，新增 30 个精品内容席位</span>
+        <span>11月16日 · 企业动态：影院影像实验室落成，面向社区开放预约参观</span>
+      </div>
+    </div>
+    <button class="cin-notice-close" id="cinNoticeClose" aria-label="关闭公告">×</button>
+  </div>
+
+  <header class="cin-header">
+    <div class="cin-header-inner">
+      <a class="cin-logo" href="#cinTop">
+        <span class="cin-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg>
+        </span>
+        <span class="cin-logo-text">
+          <b>影院</b>
+          <small>YINGYUAN STUDIO</small>
+        </span>
+      </a>
+      <nav class="cin-nav" id="cinNav">
+        <a href="#cinTop">首页</a>
+        <a href="#cinFocus">视频焦点</a>
+        <a href="#cinTopics">专题企划</a>
+        <a href="#cinCreators">创作者</a>
+        <a href="#cinNews">企业动态</a>
+        <a href="#cinFaq">帮助中心</a>
+        <a href="#cinContact">联系我们</a>
+      </nav>
+      <div class="cin-search">
+        <div class="cin-search-box">
+          <input type="search" id="cinSearchInput" placeholder="搜索影片、创作者、专题" aria-label="搜索内容">
+          <button class="cin-search-btn" id="cinSearchBtn">搜索</button>
+        </div>
+      </div>
+      <button class="cin-burger" id="cinBurger" aria-label="展开导航" aria-expanded="false"><span></span></button>
+    </div>
+  </header>
+</div>
+
+<main class="cin-main" id="cinTop">
+
+  <section class="cin-hero">
+    <div class="cin-hero-grid">
+      <div>
+        <span class="cin-hero-tag"><i></i>影院官方网站 · 原创影像社区</span>
+        <h1 class="cin-h1">影院<span>影像</span>，让故事被看见</h1>
+        <p class="cin-hero-lead">
+          影院是深耕影像内容生态的原创视频品牌，以专业制作与正版授权为根基，连接创作者、企业与每一位观众。我们相信影像的力量，也相信持续的陪伴。
+        </p>
+        <div class="cin-hero-actions">
+          <a class="cin-btn cin-btn-primary" href="#cinFocus">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="#fff"><path d="M8 5l11 7-11 7z"/></svg>
+            探索精品内容
+          </a>
+          <button class="cin-btn cin-btn-ghost" id="cinJoinBtn">成为创作者</button>
+        </div>
+        <div class="cin-stats">
+          <div class="cin-stat"><b>1280<i>+</i></b><span>原创作品</span></div>
+          <div class="cin-stat"><b>426<i>位</i></b><span>认证创作者</span></div>
+          <div class="cin-stat"><b>96<i>%</i></b><span>用户口碑好评</span></div>
+        </div>
+      </div>
+      <div class="cin-hero-visual">
+        <div class="cin-hero-float"><b>本周精选</b>「城市夜光」系列</div>
+        <div class="cin-hero-frame">
+          <svg viewBox="0 0 800 500" role="img" aria-label="影院冬季企划城市夜光主视觉海报">
+            <defs>
+              <linearGradient id="cinHeroSky" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#0d1a2c"/>
+                <stop offset="55%" stop-color="#1c2a45"/>
+                <stop offset="100%" stop-color="#3a2140"/>
+              </linearGradient>
+              <linearGradient id="cinHeroGlow" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0" stop-color="#ff5a3c" stop-opacity=".85"/>
+                <stop offset="1" stop-color="#ff5a3c" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <rect width="800" height="500" fill="url(#cinHeroSky)"/>
+            <circle cx="640" cy="120" r="70" fill="#ffc45c" opacity=".82"/>
+            <circle cx="640" cy="120" r="108" fill="#ffc45c" opacity=".13"/>
+            <g fill="#0a1420" opacity=".92">
+              <rect x="30" y="270" width="86" height="230"/>
+              <rect x="128" y="210" width="70" height="290"/>
+              <rect x="210" y="300" width="96" height="200"/>
+              <rect x="318" y="240" width="64" height="260"/>
+              <rect x="394" y="180" width="90" height="320"/>
+              <rect x="496" y="292" width="76" height="208"/>
+              <rect x="584" y="226" width="88" height="274"/>
+              <rect x="684" y="286" width="86" height="214"/>
+            </g>
+            <g fill="#ffc45c" opacity=".7">
+              <rect x="404" y="210" width="9" height="12"/><rect x="424" y="210" width="9" height="12"/>
+              <rect x="444" y="210" width="9" height="12"/><rect x="404" y="244" width="9" height="12"/>
+              <rect x="444" y="244" width="9" height="12"/><rect x="330" y="268" width="9" height="12"/>
+              <rect x="352" y="268" width="9" height="12"/><rect x="604" y="258" width="9" height="12"/>
+              <rect x="626" y="258" width="9" height="12"/><rect x="604" y="292" width="9" height="12"/>
+            </g>
+            <rect x="0" y="418" width="800" height="82" fill="#050b12"/>
+            <rect x="0" y="392" width="800" height="34" fill="url(#cinHeroGlow)"/>
+            <g stroke="#37d3c0" stroke-width="2" opacity=".6" fill="none">
+              <path d="M60 470 L200 430 L330 462 L470 420 L620 456 L740 432"/>
+            </g>
+            <g fill="#e7ecf5" font-family="PingFang SC, sans-serif">
+              <text x="40" y="72" font-size="17" letter-spacing="6" opacity=".7">CITY / NIGHT / LIGHT</text>
+            </g>
+          </svg>
+          <div class="cin-hero-play">
+            <button id="cinHeroPlay" aria-label="播放品牌宣传片">
+              <svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg>
+            </button>
+          </div>
+          <div class="cin-hero-caption">
+            <span class="cin-chip">影院品牌宣传片 · 02:36</span>
+            <span class="cin-chip">官方出品</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cin-section" id="cinAbout">
+    <div class="cin-section-head">
+      <div>
+        <span class="cin-eyebrow">品牌解析</span>
+        <h2 class="cin-h2">关于影院：一个<em>持续运营</em>的影像内容生态</h2>
+        <p class="cin-sub">从内容出品到社区共创，影院以企业级标准建设品牌影响力。</p>
+      </div>
+    </div>
+    <div class="cin-about-grid">
+      <div class="cin-about-text">
+        <p>
+          影院诞生于对影像的长期热爱。作为一家以视频为核心的原创内容品牌，我们以<strong>官方网站</strong>为枢纽，搭建起内容生产、创作者孵化、品牌合作与用户社区四条主线的完整体系。多年深耕之下，影院已经形成稳定的内容节奏：每周更新精选短片，每月推出主题企划，每季度发布行业观察。
+        </p>
+        <p>
+          我们把「品质」放在第一位。所有上架内容均经过选题评估、成片复审与正版授权核验，力求让观众在影院看到的每一帧画面都值得信赖。同时，影院坚持用户至上的社区原则，评论、收藏、投稿、投票等功能全部围绕真实交流展开，拒绝无意义的数据堆砌。
+        </p>
+        <p>
+          在创作者侧，影院提供从脚本打磨、拍摄支持到剪辑指导的全链路服务。我们相信，好的作品往往诞生于一次次被认真对待的修改之中。这也是影院作为企业持续推进社会责任的方式：把资源投向有表达欲的人，把舞台留给值得被看见的故事。
+        </p>
+        <p>
+          面向未来，影院将继续以匠心与创新打磨内容生态，让原创、正版、高清成为品牌的日常标准，也让每一位来到这里的人，都能找到与自己同频的影像与同好。
+        </p>
+        <div class="cin-about-tags">
+          <span class="cin-tag hot">原创出品</span>
+          <span class="cin-tag">正版授权</span>
+          <span class="cin-tag">高清画质</span>
+          <span class="cin-tag">内容生态</span>
+          <span class="cin-tag">创作者社区</span>
+          <span class="cin-tag">品牌故事</span>
+        </div>
+      </div>
+      <div class="cin-about-cards">
+        <div class="cin-about-card">
+          <h3><i></i>定位解析：以影像为语言的内容品牌</h3>
+          <p>影院不是单纯的播放场所，而是一个围绕影像表达建立的内容品牌。我们关注城市、人物与日常，也关注行业前沿与文化访谈，让内容在不同题材之间形成张力。</p>
+        </div>
+        <div class="cin-about-card">
+          <h3><i></i>内容生态：出品、共创与社区同步生长</h3>
+          <p>自有出品团队负责精品内容的生产，认证创作者贡献多元视角，社区用户通过评论、投稿与投票参与内容走向，三者共同构成影院的内容生态闭环。</p>
+        </div>
+        <div class="cin-about-card">
+          <h3><i></i>品质承诺：每一部上架内容都经过复审</h3>
+          <p>从画面清晰度、声音混录到版权归属，影院为每一部作品建立档案。我们更愿意慢一点，也要让精品内容的标签名副其实。</p>
+        </div>
+        <div class="cin-about-card">
+          <h3><i></i>长期主义：陪伴比流量更重要</h3>
+          <p>影院关注观众的长期体验，也关注创作者的长期成长。我们持续运营社区活动、比赛与挑战赛，让影响力沉淀为真实的口碑。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cin-section" id="cinFocus">
+    <div class="cin-section-head">
+      <div>
+        <span class="cin-eyebrow">视频焦点</span>
+        <h2 class="cin-h2">本周<em>精品内容</em>焦点推荐</h2>
+        <p class="cin-sub">由影院编辑团队与创作者共同遴选，兼顾深度与观看体验。</p>
+      </div>
+      <a class="cin-link-more" href="#cinFlow">查看全部内容 →</a>
+    </div>
+    <div class="cin-feature-grid">
+      <article class="cin-feature-main">
+        <svg viewBox="0 0 800 460" role="img" aria-label="城市夜光系列首映短片封面：霓虹街道与天桥">
+          <defs>
+            <linearGradient id="cinF1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#08111d"/>
+              <stop offset="60%" stop-color="#152742"/>
+              <stop offset="100%" stop-color="#2c1838"/>
+            </linearGradient>
+          </defs>
+          <rect width="800" height="460" fill="url(#cinF1)"/>
+          <g opacity=".9" stroke="#37d3c0" stroke-width="3" fill="none">
+            <path d="M80 380 L80 200 L220 200"/>
+            <path d="M220 200 L220 120 L360 120"/>
+          </g>
+          <g fill="#ff5a3c" opacity=".85">
+            <circle cx="80" cy="200" r="8"/><circle cx="220" cy="200" r="8"/><circle cx="220" cy="120" r="8"/><circle cx="360" cy="120" r="8"/>
+          </g>
+          <g fill="#0a1420">
+            <rect x="420" y="150" width="80" height="250"/>
+            <rect x="516" y="96" width="64" height="304"/>
+            <rect x="596" y="188" width="98" height="212"/>
+            <rect x="710" y="130" width="70" height="270"/>
+          </g>
+          <g fill="#ffc45c" opacity=".75">
+            <rect x="438" y="176" width="10" height="14"/><rect x="462" y="176" width="10" height="14"/>
+            <rect x="438" y="210" width="10" height="14"/><rect x="532" y="130" width="10" height="14"/>
+            <rect x="556" y="130" width="10" height="14"/><rect x="532" y="164" width="10" height="14"/>
+            <rect x="618" y="216" width="10" height="14"/><rect x="642" y="216" width="10" height="14"/>
+          </g>
+          <rect x="0" y="368" width="800" height="92" fill="#050b12"/>
+          <g fill="#e7ecf5" font-family="PingFang SC, sans-serif">
+            <text x="40" y="56" font-size="14" letter-spacing="5" opacity=".65">EPISODE 01</text>
+          </g>
+          <rect x="0" y="0" width="800" height="460" fill="url(#cinF1)" opacity="0"/>
+        </svg>
+        <div class="cin-feature-main-txt">
+          <div class="cin-feature-meta">
+            <span class="cin-pill">专题首映</span>
+            <span class="cin-pill teal">18:42</span>
+            <span class="cin-pill amber">官方出品</span>
+          </div>
+          <h3>城市夜光 01｜凌晨四点的便利店，和它的守夜人</h3>
+          <p>影院原创团队跟拍一座城市最安静的时段，记录收银台后的人生。这是一部关于陪伴与坚持的短片，也是「城市夜光」系列的开篇。</p>
+        </div>
+      </article>
+      <div class="cin-feature-side">
+        <article class="cin-mini">
+          <div class="cin-mini-thumb">
+            <svg viewBox="0 0 200 130" role="img" aria-label="手作陶艺纪录片封面：拉坯机与光影">
+              <rect width="200" height="130" fill="#2a1e16"/>
+              <circle cx="100" cy="80" r="42" fill="#8a5a35"/>
+              <circle cx="100" cy="80" r="26" fill="#b57a4a"/>
+              <path d="M30 130 Q100 84 170 130Z" fill="#1a120c"/>
+              <circle cx="156" cy="30" r="16" fill="#ffc45c" opacity=".7"/>
+            </svg>
+          </div>
+          <div class="cin-mini-txt">
+            <h4>一件陶器的七十二小时</h4>
+            <span>手作 · 创作幕后</span>
+            <em>12:08 · 8.6万次收藏</em>
+          </div>
+        </article>
+        <article class="cin-mini">
+          <div class="cin-mini-thumb">
+            <svg viewBox="0 0 200 130" role="img" aria-label="科技前沿访谈封面：电路板结构线">
+              <rect width="200" height="130" fill="#0b1a24"/>
+              <g stroke="#37d3c0" stroke-width="2" fill="none" opacity=".8">
+                <path d="M20 100 H80 V50 H140 V20 H180"/>
+                <path d="M20 40 H60 V80 H120 V110 H180"/>
+              </g>
+              <circle cx="80" cy="50" r="5" fill="#ff5a3c"/>
+              <circle cx="120" cy="110" r="5" fill="#ffc45c"/>
+            </svg>
+          </div>
+          <div class="cin-mini-txt">
+            <h4>影像设备的下一次跃迁</h4>
+            <span>科技前沿 · 深度访谈</span>
+            <em>21:15 · 5.2万次收藏</em>
+          </div>
+        </article>
+        <article class="cin-mini">
+          <div class="cin-mini-thumb">
+            <svg viewBox="0 0 200 130" role="img" aria-label="城市探索短片封面：老巷石板路">
+              <rect width="200" height="130" fill="#152018"/>
+              <path d="M60 130 L90 20 L110 20 L140 130Z" fill="#3b5240"/>
+              <g fill="#c8d8c4" opacity=".6">
+                <rect x="92" y="52" width="16" height="5"/><rect x="90" y="76" width="20" height="5"/>
+                <rect x="87" y="100" width="26" height="5"/>
+              </g>
+              <circle cx="160" cy="28" r="14" fill="#ffc45c" opacity=".55"/>
+            </svg>
+          </div>
+          <div class="cin-mini-txt">
+            <h4>老巷子里的第八家唱片店</h4>
+            <span>城市探索 · 在地文化</span>
+            <em>15:30 · 6.9万次收藏</em>
+          </div>
+        </article>
+        <article class="cin-mini">
+          <div class="cin-mini-thumb">
+            <svg viewBox="0 0 200 130" role="img" aria-label="萌宠日常短片封面：橘猫与窗台">
+              <rect width="200" height="130" fill="#241b14"/>
+              <rect x="30" y="78" width="140" height="52" fill="#3a2a1e"/>
+              <circle cx="100" cy="66" r="26" fill="#d98c3f"/>
+              <circle cx="90" cy="60" r="4" fill="#20130a"/><circle cx="110" cy="60" r="4" fill="#20130a"/>
+              <path d="M92 74 Q100 82 108 74" stroke="#20130a" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <path d="M74 50 L84 40 L88 56Z" fill="#d98c3f"/><path d="M126 50 L116 40 L112 56Z" fill="#d98c3f"/>
+            </svg>
+          </div>
+          <div class="cin-mini-txt">
+            <h4>它在窗台等了我一整个下午</h4>
+            <span>萌宠日常 · 治愈影像</span>
+            <em>08:24 · 9.4万次收藏</em>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cin-section" id="cinFlow">
+    <div class="cin-section-head">
+      <div>
+        <span class="cin-eyebrow">热门视频流</span>
+        <h2 class="cin-h2">社区正在<em>持续更新</em>的内容</h2>
+        <p class="cin-sub">点击标签筛选感兴趣的方向，喜欢就点个赞，收藏后可在个人页回看。</p>
+      </div>
+    </div>
+    <div class="cin-filters" id="cinFilters">
+      <button class="cin-filter-btn active" data-filter="all">全部</button>
+      <button class="cin-filter-btn" data-filter="原创">原创出品</button>
+      <button class="cin-filter-btn" data-filter="教程">教程干货</button>
+      <button class="cin-filter-btn" data-filter="人物">人物访谈</button>
+      <button class="cin-filter-btn" data-filter="城市">城市探索</button>
+      <button class="cin-filter-btn" data-filter="治愈">治愈影像</button>
+    </div>
+    <div class="cin-card-grid" id="cinCardGrid">
+
+      <article class="cin-vcard" data-cat="原创">
+        <div class="cin-vcard-cover">
+          <svg viewBox="0 0 400 225" role="img" aria-label="影院原创纪录片封面：深夜剪辑室的屏幕光">
+            <rect width="400" height="225" fill="#111b2a"/>
+            <rect x="46" y="48" width="180" height="112" rx="6" fill="#1d2e45"/>
+            <rect x="58" y="60" width="156" height="76" fill="#0a1420"/>
+            <path d="M100 88 L150 106 L100 122Z" fill="#ff5a3c"/>
+            <rect x="58" y="144" width="156" height="16" fill="#24384f"/>
+            <rect x="250" y="70" width="108" height="90" rx="6" fill="#1a2a3d"/>
+            <g fill="#37d3c0">
+              <rect x="262" y="84" width="60" height="6" rx="3"/><rect x="262" y="98" width="84" height="6" rx="3"/>
+              <rect x="262" y="112" width="48" height="6" rx="3"/><rect x="262" y="126" width="72" height="6" rx="3"/>
+            </g>
+          </svg>
+          <span class="cin-cat">原创</span><span class="cin-dur">23:16</span>
+        </div>
+        <div class="cin-vcard-body">
+          <h3>剪辑室里的第 47 个夜晚</h3>
+          <p>一部短片的成片率只有 3%，我们记录了导演反复推翻自己的过程。</p>
+          <div class="cin-vcard-foot">
+            <div class="cin-author"><span class="cin-avatar" style="background:#ff8a3c">影</span><span>影院出品</span></div>
+            <div class="cin-op">
+              <button class="cin-like" aria-label="点赞"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.3-8.2C.9 9.6 2.4 6 5.7 6c1.9 0 3.2 1 4.3 2.5C11.1 7 12.4 6 14.3 6c3.3 0 4.8 3.6 3 6.8C19 16.4 12 21 12 21z"/></svg><span>1286</span></button>
+              <button class="cin-save" aria-label="收藏"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="cin-vcard" data-cat="教程">
+        <div class="cin-vcard-cover">
+          <svg viewBox="0 0 400 225" role="img" aria-label="手机拍摄教程封面：手持稳定器与构图辅助线">
+            <rect width="400" height="225" fill="#1a1524"/>
+            <rect x="150" y="30" width="100" height="165" rx="14" fill="#2b2140"/>
+            <rect x="164" y="52" width="72" height="112" rx="4" fill="#0f0b19"/>
+            <g stroke="#ffc45c" stroke-width="1.5" opacity=".8" fill="none">
+              <path d="M164 108 H236"/><path d="M200 52 V164"/>
+            </g>
+            <circle cx="200" cy="180" r="7" fill="#ff5a3c"/>
+            <path d="M80 60 L120 100 L80 140" stroke="#37d3c0" stroke-width="3" fill="none"/>
+            <path d="M320 60 L280 100 L320 140" stroke="#37d3c0" stroke-width="3" fill="none"/>
+          </svg>
+          <span class="cin-cat">教程</span><span class="cin-dur">11:05</span>
+        </div>
+        <div class="cin-vcard-body">
+          <h3>一台手机，拍出有电影感的空镜</h3>
+          <p>三点布光、三分构图与运动节奏，拆解五个能立刻用上的实拍技巧。</p>
+          <div class="cin-vcard-foot">
+            <div class="cin-author"><span class="cin-avatar" style="background:#37d3c0">林</span><span>林间取景器</span></div>
+            <div class="cin-op">
+              <button class="cin-like" aria-label="点赞"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.3-8.2C.9 9.6 2.4 6 5.7 6c1.9 0 3.2 1 4.3 2.5C11.1 7 12.4 6 14.3 6c3.3 0 4.8 3.6 3 6.8C19 16.4 12 21 12 21z"/></svg><span>942</span></button>
+              <button class="cin-save" aria-label="收藏"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="cin-vcard" data-cat="人物">
+        <div class="cin-vcard-cover">
+          <svg viewBox="0 0 400 225" role="img" aria-label="人物访谈封面：两位对坐的创作者剪影">
+            <rect width="400" height="225" fill="#20161c"/>
+            <circle cx="132" cy="96" r="34" fill="#5c3b4e"/>
+            <path d="M76 200 Q132 132 188 200Z" fill="#43293a"/>
+            <circle cx="272" cy="96" r="34" fill="#3d4a5c"/>
+            <path d="M216 200 Q272 132 328 200Z" fill="#2a3644"/>
+            <rect x="170" y="150" width="64" height="10" rx="5" fill="#ff5a3c"/>
+            <circle cx="200" cy="44" r="14" fill="#ffc45c" opacity=".6"/>
+          </svg>
+          <span class="cin-cat">人物</span><span class="cin-dur">34:50</span>
+        </div>
+        <div class="cin-vcard-body">
+          <h3>对话：为什么我们还在坚持长片创作</h3>
+          <p>两位独立导演聊了聊耐心、预算与表达欲，也聊了创作者的真实困境。</p>
+          <div class="cin-vcard-foot">
+            <div class="cin-author"><span class="cin-avatar" style="background:#ffc45c">周</span><span>周叙影像</span></div>
+            <div class="cin-op">
+              <button class="cin-like" aria-label="点赞"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.3-8.2C.9 9.6 2.4 6 5.7 6c1.9 0 3.2 1 4.3 2.5C11.1 7 12.4 6 14.3 6c3.3 0 4.8 3.6 3 6.8C19 16.4 12 21 12 21z"/></svg><span>735</span></button>
+              <button class="cin-save" aria-label="收藏"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="cin-vcard" data-cat="城市">
+        <div class="cin-vcard-cover">
+          <svg viewBox="0 0 400 225" role="img" aria-label="城市探索封面：高架桥与穿行的车流灯轨">
+            <rect width="400" height="225" fill="#0c1a24"/>
+            <rect x="0" y="150" width="400" height="75" fill="#08111a"/>
+            <path d="M0 150 L120 96 L280 96 L400 150" stroke="#2b4256" stroke-width="12" fill="none"/>
+            <path d="M40 200 Q200 168 360 200" stroke="#ff5a3c" stroke-width="4" fill="none" opacity=".9"/>
+            <path d="M60 212 Q200 186 340 212" stroke="#37d3c0" stroke-width="3" fill="none" opacity=".7"/>
+            <g fill="#ffc45c" opacity=".8">
+              <circle cx="150" cy="120" r="4"/><circle cx="200" cy="114" r="4"/><circle cx="250" cy="120" r="4"/>
+            </g>
+          </svg>
+          <span class="cin-cat">城市</span><span class="cin-dur">09:38</span>
+        </div>
+        <div class="cin-vcard-body">
+          <h3>沿高架走完一座城的黄昏</h3>
+          <p>从西到东，三十七分钟的车程，剪成九分钟的黄昏纪录片。</p>
+          <div class="cin-vcard-foot">
+            <div class="cin-author"><span class="cin-avatar" style="background:#8ea8ff">徐</span><span>徐行记录</span></div>
+            <div class="cin-op">
+              <button class="cin-like" aria-label="点赞"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.3-8.2C.9 9.6 2.4 6 5.7 6c1.9 0 3.2 1 4.3 2.5C11.1 7 12.4 6 14.3 6c3.3 0 4.8 3.6 3 6.8C19 16.4 12 21 12 21z"/></svg><span>1104</span></button>
+              <button class="cin-save" aria-label="收藏"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="cin-vcard" data-cat="治愈">
+        <div class="cin-vcard-cover">
+          <svg viewBox="0 0 400 225" role="img" aria-label="治愈影像封面：窗边绿植与清晨光斑">
+            <rect width="400" height="225" fill="#16241d"/>
+            <rect x="60" y="26" width="120" height="150" rx="6" fill="#24382c"/>
+            <g stroke="#5a7a5f" stroke-width="3" fill="none">
+              <path d="M120 176 V96"/><path d="M120 120 Q94 104 90 82"/><path d="M120 140 Q148 122 152 98"/>
+            </g>
+            <g fill="#8fbf91" opacity=".85">
+              <ellipse cx="86" cy="78" rx="14" ry="8" transform="rotate(-24 86 78)"/>
+              <ellipse cx="156" cy="94" rx="14" ry="8" transform="rotate(24 156 94)"/>
+            </g>
+            <circle cx="292" cy="84" r="46" fill="#ffc45c" opacity=".28"/>
+            <circle cx="292" cy="84" r="24" fill="#ffc45c" opacity=".6"/>
+            <rect x="240" y="140" width="120" height="12" rx="6" fill="#2f4637"/>
+            <rect x="256" y="160" width="88" height="12" rx="6" fill="#2f4637"/>
+          </svg>
+          <span class="cin-cat">治愈</span><span class="cin-dur">06:12</span>
+        </div>
+        <div class="cin-vcard-body">
+          <h3>给窗台的绿植换一次土</h3>
+          <p>没有旁白的六分钟。只有土、水、光线，和慢慢安静下来的呼吸。</p>
+          <div class="cin-vcard-foot">
+            <div class="cin-author"><span class="cin-avatar" style="background:#8fbf91">夏</span><span>夏日慢镜头</span></div>
+            <div class="cin-op">
+              <button class="cin-like" aria-label="点赞"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.3-8.2C.9 9.6 2.4 6 5.7 6c1.9 0 3.2 1 4.3 2.5C11.1 7 12.4 6 14.3 6c3.3 0 4.8 3.6 3 6.8C19 16.4 12 21 12 21z"/></svg><span>1580</span></button>
+              <button class="cin-save" aria-label="收藏"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="cin-vcard" data-cat="教程">
+        <div class="cin-vcard-cover">
+          <svg viewBox="0 0 400 225" role="img" aria-label="调色教程封面：色轮与曲线波形">
+            <rect width="400" height="225" fill="#101828"/>
+            <circle cx="120" cy="112" r="62" fill="none" stroke="#2b3c56" stroke-width="18"/>
+            <path d="M120 50 A62 62 0 0 1 182 112" stroke="#ff5a3c" stroke-width="18" fill="none"/>
+            <path d="M120 174 A62 62 0 0 1 58 112" stroke="#37d3c0" stroke-width="18" fill="none"/>
+            <path d="M58 112 A62 62 0 0 1 120 50" stroke="#ffc45c" stroke-width="18" fill="none"/>
+            <g stroke="#4a647f" stroke-width="2" fill="none">
+              <path d="M230 170 Q262 100 294 140 T370 96"/>
+              <path d="M230 186 Q270 140 310 166 T370 130"/>
+            </g>
+          </svg>
+          <span class="cin-cat">教程</span><span class="cin-dur">17:24</span>
+        </div>
+        <div class="cin-vcard-body">
+          <h3>把阴天素材调成黄昏的七个步骤</h3>
+          <p>色温、曲线与分离色调的组合逻辑，附带一份可直接导入的参数表。</p>
+          <div class="cin-vcard-foot">
+            <div class="cin-author"><span class="cin-avatar" style="background:#c7a2ff">沈</span><span>沈调色</span></div>
+            <div class="cin-op">
+              <button class="cin-like" aria-label="点赞"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.3-8.2C.9 9.6 2.4 6 5.7 6c1.9 0 3.2 1 4.3 2.5C11.1 7 12.4 6 14.3 6c3.3 0 4.8 3.6 3 6.8C19 16.4 12 21 12 21z"/></svg><span>866</span></button>
+              <button class="cin-save" aria-label="收藏"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="cin-section" id="cinTopics">
+    <div class="cin-section-head">
+      <div>
+        <span class="cin-eyebrow">专题企划</span>
+        <h2 class="cin-h2">正在进行的<em>品牌企划</em></h2>
+        <p class="cin-sub">影院每季度推出一个主题企划，联合创作者共同完成内容共创。</p>
+      </div>
+    </div>
+    <div class="cin-topic-grid">
+      <article class="cin-topic">
+        <svg viewBox="0 0 300 220" role="img" aria-label="城市夜光专题封面：夜色中的高楼与灯带">
+          <rect width="300" height="220" fill="#0b1626"/>
+          <rect x="30" y="90" width="46" height="130" fill="#132540"/>
+          <rect x="86" y="60" width="58" height="160" fill="#182f4d"/>
+          <rect x="154" y="106" width="46" height="114" fill="#132540"/>
+          <rect x="210" y="76" width="60" height="144" fill="#182f4d"/>
+          <g fill="#ffc45c" opacity=".8">
+            <rect x="96" y="80" width="8" height="10"/><rect x="116" y="80" width="8" height="10"/>
+            <rect x="96" y="104" width="8" height="10"/><rect x="224" y="96" width="8" height="10"/>
+            <rect x="244" y="96" width="8" height="10"/><rect x="224" y="122" width="8" height="10"/>
+          </g>
+          <rect x="0" y="196" width="300" height="24" fill="#050c15"/>
+        </svg>
+        <div class="cin-topic-txt">
+          <span class="cin-pill">更新至第 4 集</span>
+          <h3>城市夜光</h3>
+          <span>12 位创作者 · 记录城市的深夜切片</span>
+        </div>
+      </article>
+      <article class="cin-topic">
+        <svg viewBox="0 0 300 220" role="img" aria-label="手作之美专题封面：陶土与刻刀工具">
+          <rect width="300" height="220" fill="#241a13"/>
+          <circle cx="120" cy="140" r="56" fill="#8a5a35"/>
+          <circle cx="120" cy="140" r="34" fill="#b57a4a"/>
+          <rect x="196" y="60" width="10" height="120" rx="5" fill="#d9c3a5"/>
+          <path d="M201 60 L214 46 L214 66Z" fill="#d9c3a5"/>
+          <circle cx="250" cy="56" r="18" fill="#ffc45c" opacity=".5"/>
+        </svg>
+        <div class="cin-topic-txt">
+          <span class="cin-pill teal">持续征稿</span>
+          <h3>手作之美</h3>
+          <span>陶艺、木作与织物 · 慢工出细活</span>
+        </div>
+      </article>
+      <article class="cin-topic">
+        <svg viewBox="0 0 300 220" role="img" aria-label="镜头之外专题封面：摄影机轮廓与场记板">
+          <rect width="300" height="220" fill="#151c2c"/>
+          <rect x="46" y="96" width="120" height="80" rx="8" fill="#22304a"/>
+          <circle cx="106" cy="136" r="28" fill="#0a1420"/>
+          <circle cx="106" cy="136" r="16" fill="#37d3c0" opacity=".7"/>
+          <rect x="196" y="58" width="76" height="60" rx="4" fill="#1b2639"/>
+          <g fill="#ff5a3c">
+            <rect x="196" y="58" width="76" height="12"/>
+          </g>
+          <rect x="196" y="150" width="76" height="10" rx="5" fill="#2b3c56"/>
+          <rect x="196" y="170" width="52" height="10" rx="5" fill="#2b3c56"/>
+        </svg>
+        <div class="cin-topic-txt">
+          <span class="cin-pill amber">进行中</span>
+          <h3>镜头之外</h3>
+          <span>创作幕后 · 看见作品背后的选择</span>
+        </div>
+      </article>
+      <article class="cin-topic">
+        <svg viewBox="0 0 300 220" role="img" aria-label="小城放映厅专题封面：银幕与成排座椅">
+          <rect width="300" height="220" fill="#1d1626"/>
+          <rect x="46" y="40" width="208" height="96" rx="6" fill="#f2ead9" opacity=".9"/>
+          <rect x="60" y="56" width="180" height="64" fill="#2b2140"/>
+          <path d="M136 76 L172 88 L136 100Z" fill="#ff5a3c"/>
+          <g fill="#2b2140">
+            <rect x="40" y="160" width="40" height="46" rx="8"/><rect x="94" y="160" width="40" height="46" rx="8"/>
+            <rect x="148" y="160" width="40" height="46" rx="8"/><rect x="202" y="160" width="40" height="46" rx="8"/>
+          </g>
+        </svg>
+        <div class="cin-topic-txt">
+          <span class="cin-pill">已完结</span>
+          <h3>小城放映厅</h3>
+          <span>六座小城 · 六段与电影有关的故事</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="cin-section" id="cinCreators">
+    <div class="cin-section-head">
+      <div>
+        <span class="cin-eyebrow">创作者矩阵</span>
+        <h2 class="cin-h2">影院社区的<em>创作者</em>们</h2>
+        <p class="cin-sub">他们用不同的镜头语言，共同构成影院的多元内容生态。</p>
+      </div>
+    </div>
+    <div class="cin-creator-grid">
+      <article class="cin-creator">
+        <div class="cin-creator-avatar" style="background:linear-gradient(140deg,#ffb37a,#ff5a3c)">林</div>
+        <h3>林间取景器</h3>
+        <div class="cin-cr-field">实战教程 / 器材测评</div>
+        <p>十年广告摄影经验，擅长把复杂技术讲成能听懂的三句话。</p>
+        <div class="cin-creator-stats">
+          <div><b>86</b>作品</div>
+          <div><b>12.4万</b>关注</div>
+        </div>
+        <button class="cin-creator-more" data-author="林间取景器">查看档案</button>
+      </article>
+      <article class="cin-creator">
+        <div class="cin-creator-avatar" style="background:linear-gradient(140deg,#8ee6db,#1f9d8c)">徐</div>
+        <h3>徐行记录</h3>
+        <div class="cin-cr-field">城市探索 / 在地文化</div>
+        <p>走路很慢，剪片更慢。专注记录城市里正在消失的街角与声音。</p>
+        <div class="cin-creator-stats">
+          <div><b>52</b>作品</div>
+          <div><b>8.7万</b>关注</div>
+        </div>
+        <button class="cin-creator-more" data-author="徐行记录">查看档案</button>
+      </article>
+      <article class="cin-creator">
+        <div class="cin-creator-avatar" style="background:linear-gradient(140deg,#ffd98c,#e0a324)">周</div>
+        <h3>周叙影像</h3>
+        <div class="cin-cr-field">人物访谈 / 深度纪录</div>
+        <p>做过记者，现在拍人。相信耐心是最好的采访技巧。</p>
+        <div class="cin-creator-stats">
+          <div><b>34</b>作品</div>
+          <div><b>6.2万</b>关注</div>
+        </div>
+        <button class="cin-creator-more" data-author="周叙影像">查看档案</button>
+      </article>
+      <article class="cin-creator">
+        <div class="cin-creator-avatar" style="background:linear-gradient(140deg,#a9c1ff,#4a6bff)">沈</div>
+        <h3>沈调色</h3>
+        <div class="cin-cr-field">后期调色 / 视觉美学</div>
+        <p>调色师出身，喜欢研究色彩如何影响情绪，课程累计播放超百万。</p>
+        <div class="cin-creator-stats">
+          <div><b>61</b>作品</div>
+          <div><b>9.1万</b>关注</div>
+        </div>
+        <button class="cin-creator-more" data-author="沈调色">查看档案</button>
+      </article>
+      <article class="cin-creator">
+        <div class="cin-creator-avatar" style="background:linear-gradient(140deg,#b9e6a8,#4f8f3a)">夏</div>
+        <h3>夏日慢镜头</h3>
+        <div class="cin-cr-field">治愈影像 / 日常记录</div>
+        <p>不写脚本，只等光线。用最少的剪辑留下最真实的生活质感。</p>
+        <div class="cin-creator-stats">
+          <div><b>78</b>作品</div>
+          <div><b>15.8万</b>关注</div>
+        </div>
+        <button class="cin-creator-more" data-author="夏日慢镜头">查看档案</button>
+      </article>
+      <article class="cin-creator">
+        <div class="cin-creator-avatar" style="background:linear-gradient(140deg,#ffb0c8,#d2447a)">顾</div>
+        <h3>顾城夜话</h3>
+        <div class="cin-cr-field">文化访谈 / 行业观察</div>
+        <p>关注影像行业的长期变化，习惯用数据和案例说话。</p>
+        <div class="cin-creator-stats">
+          <div><b>29</b>作品</div>
+          <div><b>4.6万</b>关注</div>
+        </div>
+        <button class="cin-creator-more" data-author="顾城夜话">查看档案</button>
+      </article>
+    </div>
+  </section>
+
+  <section class="cin-section" id="cinVoice">
+    <div class="cin-section-head">
+      <div>
+        <span class="cin-eyebrow">社区口碑</span>
+        <h2 class="cin-h2">来自观众的<em>真实</em>声音</h2>
+        <p class="cin-sub">影院坚持用户至上，每一条反馈都会被认真阅读。</p>
+      </div>
+    </div>
+    <div class="cin-quote-grid">
+      <div class="cin-quote">
+        <div class="cin-quote-top"><span class="cin-avatar" style="background:#ffb37a">阿</span><b>阿岚</b><span>· 社区用户</span></div>
+        <p>在影院追完了「城市夜光」前四集，才发现原来凌晨的城市还有这么多故事。画面很干净，没有多余的东西。</p>
+        <div class="cin-stars">★★★★★</div>
+      </div>
+      <div class="cin-quote">
+        <div class="cin-quote-top"><span class="cin-avatar" style="background:#8ee6db">小</span><b>小满不困</b><span>· 认证创作者</span></div>
+        <p>投稿流程比想象中顺，编辑会给逐条修改意见，不是那种模板式回复。这一点很难得。</p>
+        <div class="cin-stars">★★★★★</div>
+      </div>
+      <div class="cin-quote">
+        <div class="cin-quote-top"><span class="cin-avatar" style="background:#a9c1ff">木</span><b>木木同学</b><span>· 影视专业学生</span></div>
+        <p>调色教程那一期反复看了三遍，参数表直接能用。希望以后多一些这种真正落地的干货。</p>
+        <div class="cin-stars">★★★★☆</div>
+      </div>
+      <div class="cin-quote">
+        <div class="cin-quote-top"><span class="cin-avatar" style="background:#ffd98c">老</span><b>老葛</b><span>· 企业合作方</span></div>
+        <p>和影院合作过一次品牌短片，从提案到交付都很有章法，沟通成本低，成品质量稳定。</p>
+        <div class="cin-stars">★★★★★</div>
+      </div>
+      <div class="cin-quote">
+        <div class="cin-quote-top"><span class="cin-avatar" style="background:#b9e6a8">一</span><b>一只柚子</b><span>· 社区用户</span></div>
+        <p>喜欢影院的收藏夹功能，把想看的整理成清单，周末一次看个够。界面也很舒服，不吵。</p>
+        <div class="cin-stars">★★★★☆</div>
+      </div>
+      <div class="cin-quote">
+        <div class="cin-quote-top"><span class="cin-avatar" style="background:#ffb0c8">海</span><b>海边散步</b><span>· 社区用户</span></div>
+        <p>治愈影像那几支短片，配乐选得特别好。晚上加班回家看一支，情绪会慢慢平下来。</p>
+        <div class="cin-stars">★★★★★</div>
+      </div>
+      <div class="cin-quote">
+        <div class="cin-quote-top"><span class="cin-avatar" style="background:#c7a2ff">陈</span><b>陈小舟</b><span>· 认证创作者</span></div>
+        <p>参加过第二期创作挑战赛，评审意见写得比我拍的还认真。新一期我已经报名了。</p>
+        <div class="cin-stars">★★★★★</div>
+      </div>
+      <div class="cin-quote">
+        <div class="cin-quote-top"><span class="cin-avatar" style="background:#ff8a3c">猫</span><b>猫与旧书</b><span>· 社区用户</span></div>
+        <p>希望可以增加按时长筛选的功能，通勤路上只能看短片。其他都挺好，客服回复也快。</p>
+        <div class="cin-stars">★★★★☆</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cin-section" id="cinNews">
+    <div class="cin-section-head">
+      <div>
+        <span class="cin-eyebrow">企业动态</span>
+        <h2 class="cin-h2">影院<em>官方发布</em>与更新日志</h2>
+        <p class="cin-sub">关于品牌、内容与社区的最新进展。</p>
+      </div>
+    </div>
+    <div class="cin-log">
+      <div class="cin-log-item">
+        <div class="cin-log-date">2026.11.19</div>
+        <div>
+          <h3>冬季企划「城市夜光」正式上线</h3>
+          <p>首批 12 部原创短片同步发布，覆盖城市探索、人物访谈与治愈影像三类方向，可在专题页查看完整片单与创作手记。</p>
+        </div>
+      </div>
+      <div class="cin-log-item">
+        <div class="cin-log-date">2026.11.18</div>
+        <div>
+          <h3>创作者扶持计划第三期开放报名</h3>
+          <p>本期新增 30 个精品内容席位，提供拍摄场地支持、后期指导与官方推荐资源，报名入口在投稿页开放至 12 月 20 日。</p>
+        </div>
+      </div>
+      <div class="cin-log-item">
+        <div class="cin-log-date">2026.11.16</div>
+        <div>
+          <h3>影院影像实验室落成，开放预约参观</h3>
+          <p>实验室将用于内容试映、创作者交流与设备体验，每月举办两场开放日，社区用户可通过联系表单提交预约申请。</p>
+        </div>
+      </div>
+      <div class="cin-log-item">
+        <div class="cin-log-date">2026.11.10</div>
+        <div>
+          <h3>社区改版：新增标签筛选与收藏夹</h3>
+          <p>热门视频流支持按内容方向筛选，个人中心新增收藏夹分组能力，方便建立自己的片单与灵感清单。</p>
+        </div>
+      </div>
+      <div class="cin-log-item">
+        <div class="cin-log-date">2026.11.02</div>
+        <div>
+          <h3>影院与三家影像机构达成内容合作</h3>
+          <p>合作将围绕行业观察、设备测评与线下放映展开，共同推动正版高清内容的生产与传播。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cin-section" id="cinFaq">
+    <div class="cin-section-head">
+      <div>
+        <span class="cin-eyebrow">帮助中心</span>
+        <h2 class="cin-h2">关于影院，你可能会<em>想知道</em></h2>
+      </div>
+    </div>
+    <div class="cin-faq">
+      <details open>
+        <summary>影院是什么类型的品牌？</summary>
+        <p>影院是一个以视频为核心的原创内容品牌与影像社区，既自制精品内容，也向认证创作者开放共创。我们希望把专业、正版、高清的内容带给更多观众。</p>
+      </details>
+      <details>
+        <summary>如何成为影院的认证创作者？</summary>
+        <p>在投稿入口提交至少两部原创作品与个人简介，审核周期通常为五至七个工作日。通过后可使用创作者工作台管理作品、查看数据与参与企划。</p>
+      </details>
+      <details>
+        <summary>平台内容是否都经过版权核验？</summary>
+        <p>是。影院对所有上架内容执行版权核验流程，要求创作者提供素材来源与授权说明，未通过核验的作品不会进入展示区。</p>
+      </details>
+      <details>
+        <summary>我希望和影院进行品牌合作，怎么联系？</summary>
+        <p>可通过页面底部联系我们区域的合作邮箱发送需求说明，我们的商务团队会在两个工作日内回复，并提供内容方案与排期建议。</p>
+      </details>
+      <details>
+        <summary>收藏和点赞的数据会同步吗？</summary>
+        <p>会。点赞与收藏记录在账号内，换设备登录后仍然保留。收藏内容支持分组管理，便于整理片单与创作灵感。</p>
+      </details>
+      <details>
+        <summary>创作挑战赛多久举办一次？</summary>
+        <p>通常每季度一次，主题围绕当期企划展开。参赛作品由编辑团队与特邀创作者共同评审，结果在社区公告与企业动态中同步发布。</p>
+      </details>
+      <details>
+        <summary>内容更新频率是怎样的？</summary>
+        <p>精选内容每周更新，专题企划每月推出，企业动态与更新日志按实际进展发布。重要更新会出现在顶部公告条。</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="cin-section" id="cinContact">
+    <div class="cin-section-head">
+      <div>
+        <span class="cin-eyebrow">联系我们</span>
+        <h2 class="cin-h2">合作、投稿与<em>社区互动</em></h2>
+        <p class="cin-sub">无论你是创作者、品牌方还是普通观众，影院都欢迎你的声音。</p>
+      </div>
+    </div>
+    <div class="cin-contact-grid">
+      <div class="cin-contact-card">
+        <h3><svg viewBox="0 0 24 24"><path d="M2 5h20v14H2zM2 5l10 8 10-8"/></svg>商务合作</h3>
+        <p>品牌短片、内容共创、线下放映与联合企划，欢迎发送合作需求与预算说明。</p>
+        <button class="cin-btn cin-btn-ghost" id="cinCopyMail">复制合作邮箱</button>
+      </div>
+      <div class="cin-contact-card">
+        <h3><svg viewBox="0 0 24 24"><path d="M4 20l6-6M14 4l6 6-9 9H5v-6z"/></svg>创作者投稿</h3>
+        <p>已有成片或正在筹备作品？提交作品信息与创作说明，编辑团队会与你联系。</p>
+        <button class="cin-btn cin-btn-primary" id="cinSubmitBtn">打开投稿入口</button>
+      </div>
+      <div class="cin-contact-card">
+        <h3><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 5v5l4 2"/></svg>社区反馈</h3>
+        <p>功能建议、内容纠错或体验问题，都可以通过反馈入口告诉我们，我们持续改进。</p>
+        <button class="cin-btn cin-btn-ghost" id="cinFeedbackBtn">提交反馈</button>
+      </div>
+    </div>
+    <div class="cin-partners" style="margin-top:26px">
+      <div class="cin-partner">光影制片厂</div>
+      <div class="cin-partner">南岸影像馆</div>
+      <div class="cin-partner">一格设备</div>
+      <div class="cin-partner">城市文化中心</div>
+      <div class="cin-partner">慢镜头音乐</div>
+      <div class="cin-partner">放映计划</div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="cin-footer">
+  <div class="cin-footer-inner">
+    <div class="cin-footer-grid">
+      <div class="cin-footer-brand">
+        <a class="cin-logo" href="#cinTop">
+          <span class="cin-logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg>
+          </span>
+          <span class="cin-logo-text"><b>影院</b><small>YINGYUAN STUDIO</small></span>
+        </a>
+        <p>影院官方网站 · 原创影像内容品牌与创作者社区。深耕视频内容生态，坚持正版高清与精品内容标准，持续运营中。</p>
+      </div>
+      <div class="cin-footer-col">
+        <h4>内容</h4>
+        <a href="#cinFocus">视频焦点</a>
+        <a href="#cinFlow">热门视频流</a>
+        <a href="#cinTopics">专题企划</a>
+        <a href="#cinCreators">创作者矩阵</a>
+      </div>
+      <div class="cin-footer-col">
+        <h4>品牌</h4>
+        <a href="#cinAbout">品牌解析</a>
+        <a href="#cinNews">企业动态</a>
+        <a href="#cinVoice">社区口碑</a>
+        <a href="#cinContact">合作联系</a>
+      </div>
+      <div class="cin-footer-col">
+        <h4>支持</h4>
+        <a href="#cinFaq">帮助中心</a>
+        <a href="#cinContact">投稿入口</a>
+        <a href="#cinContact">反馈建议</a>
+        <a href="#cinTop">回到顶部</a>
+      </div>
+    </div>
+    <div class="cin-footer-bottom">
+      <span>© 2026 影院 YINGYUAN STUDIO 版权所有 · 官方网站</span>
+      <span>企业信息：影院内容运营中心 · 社区服务时间 09:00–21:00 · 备案号 京ICP备2026000000号</span>
+    </div>
+  </div>
+</footer>
+
+<div class="cin-toast" id="cinToast"></div>
+<button class="cin-top-btn" id="cinTopBtn" aria-label="回到顶部"><svg viewBox="0 0 24 24"><path d="M12 4l8 8h-5v8H9v-8H4z"/></svg></button>
+
+<div class="cin-modal-mask" id="cinModalMask">
+  <div class="cin-modal" role="dialog" aria-modal="true" aria-labelledby="cinModalTitle">
+    <h3 id="cinModalTitle">成为影院创作者</h3>
+    <p id="cinModalDesc">留下你的联系方式与创作方向，影院编辑团队会与你联系。</p>
+    <label for="cinModalName">称呼</label>
+    <input id="cinModalName" type="text" placeholder="怎么称呼你">
+    <label for="cinModalTopic">创作方向</label>
+    <input id="cinModalTopic" type="text" placeholder="例如：城市探索 / 教程干货">
+    <label for="cinModalNote">想说的话</label>
+    <textarea id="cinModalNote" rows="3" placeholder="简单介绍你的作品与计划"></textarea>
+    <div class="cin-modal-foot">
+      <button class="cin-btn cin-btn-ghost" id="cinModalCancel">取消</button>
+      <button class="cin-btn cin-btn-primary" id="cinModalConfirm">提交</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var prefix = 'cin';
+
+  var toastEl = document.getElementById('cinToast');
+  var toastTimer = null;
+  function showToast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 2200);
+  }
+
+  var noticeClose = document.getElementById('cinNoticeClose');
+  var notice = document.getElementById('cinNotice');
+  noticeClose.addEventListener('click', function(){
+    notice.style.display = 'none';
+    document.documentElement.style.setProperty('--cin-sticky', '58px');
+  });
+
+  var burger = document.getElementById('cinBurger');
+  var nav = document.getElementById('cinNav');
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A' && window.innerWidth <= 760){
+      nav.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+    }
+  });
+
+  var searchInput = document.getElementById('cinSearchInput');
+  var searchBtn = document.getElementById('cinSearchBtn');
+  function doSearch(){
+    var q = searchInput.value.trim();
+    if(!q){ showToast('请输入影片名、创作者或专题关键词'); searchInput.focus(); return; }
+    showToast('正在检索「' + q + '」相关内容，已为你匹配到 6 条结果');
+  }
+  searchBtn.addEventListener('click', doSearch);
+  searchInput.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); doSearch(); }
+  });
+  searchInput.addEventListener('input', function(){
+    if(searchInput.value.trim().length >= 8){
+      showToast('输入较长，可尝试更短的关键词提高匹配度');
+    }
+  });
+
+  document.querySelectorAll('.cin-like').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var numEl = btn.querySelector('span');
+      var n = parseInt(numEl.textContent, 10) || 0;
+      var liked = btn.classList.toggle('liked');
+      numEl.textContent = liked ? (n + 1) : (n - 1);
+      showToast(liked ? '已点赞，感谢你的支持' : '已取消点赞');
+    });
+  });
+  document.querySelectorAll('.cin-save').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var saved = btn.classList.toggle('saved');
+      btn.querySelector('svg').style.fill = saved ? 'currentColor' : 'none';
+      btn.querySelector('svg').style.stroke = 'currentColor';
+      btn.querySelector('svg').style.strokeWidth = '1.6';
+      showToast(saved ? '已加入收藏夹，可在个人中心查看' : '已从收藏夹移除');
+    });
+  });
+
+  var filterWrap = document.getElementById('cinFilters');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#cinCardGrid .cin-vcard'));
+  filterWrap.addEventListener('click', function(e){
+    var b = e.target.closest('.cin-filter-btn');
+    if(!b) return;
+    filterWrap.querySelectorAll('.cin-filter-btn').forEach(function(x){ x.classList.remove('active'); });
+    b.classList.add('active');
+    var f = b.getAttribute('data-filter');
+    var count = 0;
+    cards.forEach(function(c){
+      var ok = (f === 'all' || c.getAttribute('data-cat') === f);
+      c.style.display = ok ? '' : 'none';
+      if(ok) count++;
+    });
+    showToast('已筛选出 ' + count + ' 条符合条件的内容');
+  });
+
+  var heroPlay = document.getElementById('cinHeroPlay');
+  heroPlay.addEventListener('click', function(){
+    showToast('品牌宣传片即将开始，请保持网络通畅');
+  });
+
+  var joinBtn = document.getElementById('cinJoinBtn');
+  var submitBtn = document.getElementById('cinSubmitBtn');
+  var modalMask = document.getElementById('cinModalMask');
+  var modalTitle = document.getElementById('cinModalTitle');
+  var modalDesc = document.getElementById('cinModalDesc');
+  var modalCancel = document.getElementById('cinModalCancel');
+  var modalConfirm = document.getElementById('cinModalConfirm');
+  function openModal(title, desc){
+    modalTitle.textContent = title;
+    modalDesc.textContent = desc;
+    modalMask.classList.add('show');
+    document.getElementById('cinModalName').focus();
+  }
+  function closeModal(){ modalMask.classList.remove('show'); }
+  joinBtn.addEventListener('click', function(){
+    openModal('成为影院创作者', '留下你的联系方式与创作方向，影院编辑团队会与你联系。');
+  });
+  submitBtn.addEventListener('click', function(){
+    openModal('打开投稿入口', '提交作品信息与创作说明，我们会安排编辑与你沟通后续流程。');
+  });
+  modalCancel.addEventListener('click', closeModal);
+  modalMask.addEventListener('click', function(e){ if(e.target === modalMask) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
+  modalConfirm.addEventListener('click', function(){
+    var name = document.getElementById('cinModalName').value.trim();
+    if(!name){ showToast('请先填写称呼'); return; }
+    closeModal();
+    showToast('提交成功，影院将在两个工作日内回复');
+    document.getElementById('cinModalName').value = '';
+    document.getElementById('cinModalTopic').value = '';
+    document.getElementById('cinModalNote').value = '';
+  });
+
+  var feedbackBtn = document.getElementById('cinFeedbackBtn');
+  feedbackBtn.addEventListener('click', function(){
+    openModal('提交社区反馈', '描述你遇到的问题或建议，影院会逐条阅读并改进。');
+  });
+
+  var copyMail = document.getElementById('cinCopyMail');
+  copyMail.addEventListener('click', function(){
+    var mail = 'partner@yingyuan-studio.com';
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(mail).then(function(){
+        showToast('合作邮箱已复制：' + mail);
+      }).catch(function(){ showToast('合作邮箱：' + mail); });
+    } else {
+      showToast('合作邮箱：' + mail);
+    }
+  });
+
+  document.querySelectorAll('.cin-creator-more').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var name = btn.getAttribute('data-author');
+      showToast(name + ' 的主页档案已为你定位');
+    });
+  });
+
+  var topBtn = document.getElementById('cinTopBtn');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 520) topBtn.classList.add('show');
+    else topBtn.classList.remove('show');
+  }, { passive: true });
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+})();
+</script>
+</body>
+                                       </html>
